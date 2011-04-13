@@ -12,7 +12,7 @@ DENYHOSTS_START = "/etc/init.d/denyhosts start"
 
 args = sys.argv[1:]
 
-if os.geteuid() == 0:
+if os.geteuid() != 0:
     print "You need to be a superuser to run this"
     sys.exit()
 
