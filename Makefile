@@ -1,7 +1,7 @@
 .PHONY: install uninstall
 
 install:
-	mv denyhosts-unban /usr/sbin/
+	mv usr/sbin/denyhosts-unban /usr/sbin/
 
 uninstall:
 	rm /usr/sbin/denyhosts-unban

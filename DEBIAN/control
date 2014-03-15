@@ -1,0 +1,11 @@
+Package: denyhosts-unban
+Priority: optional
+Section: shells
+Installed-Size: 1444
+Maintainer: Kura <kura@kura.io> 
+Architecture: all
+Version: 0.0.1
+Depends: bash-completion (>=2.6)
+Description: Easily unban an IP address from DenyHosts
+Homepage: https://kura.io/denyhosts-unban
+Bugs: https://github.com/kura/denyhosts-unban/issues
