@@ -33,3 +33,7 @@ Thanks
 
 - `Chris Gahan <https://github.com/epitron>`__ for starting the BASH version that spawned this SH version.
 
+License
+-------
+
+MIT
