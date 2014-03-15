@@ -1,0 +1,23 @@
+#!/bin/sh
+
+BASE_PATH="/var/lib/denyhosts"
+
+if [ $# -ne 1 ]
+then
+  echo "Usage: denyhosts-unban <ip address>"
+  exit 1
+fi
+
+IP="$1"
+
+/etc/init.d/denyhosts stop
+
+cd $BASE_PATH
+
+for i in hosts hosts-restricted hosts-root hosts-valid users-hosts /etc/hosts.deny
+do
+  mv $i $i.bak
+  grep -v "$IP" $i.bak > $i
+done
+
+/etc/init.d/denyhosts start
