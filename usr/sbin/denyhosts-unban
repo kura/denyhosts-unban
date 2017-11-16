@@ -43,4 +43,18 @@ do
   grep -v "$IP" $i.bak > $i
 done
 
+echo "Removed IP from denyhosts files";
+
 /etc/init.d/denyhosts start
+
+if type "iptables" > /dev/null; then
+  RULENUMBER="$(iptables -L -n --line-numbers | grep $IP | awk -v RS=[0-9]+ '{print RT+0;exit}')"
+  if [ ! -z $RULENUMBER ]; then
+    iptables -D INPUT $RULENUMBER
+    echo "IP removed from ipatables";
+  else
+    echo "IP not found in ipatables";
+  fi
+else
+  echo "iptables not installed.";
+fi
